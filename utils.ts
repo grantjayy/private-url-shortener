@@ -21,3 +21,7 @@ export const buildUrl = (obj: Record<string, any>, run = true): string => {
     }
     return url;
 };
+
+export const utmValidator = (original: Record<string, string>): Record<string, string> => {
+    return Object.keys(original).reduce((n: Record<string, string>, k: string) => ((n[k] = original[k].toLowerCase().replace(/[\W_]+/g, '')), n), {});
+};

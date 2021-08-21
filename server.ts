@@ -2,7 +2,7 @@ import app from './settings';
 import config from './config/config';
 import logging from './config/logging';
 import utmParams from './models';
-import { buildUrl } from './utils';
+import { buildUrl, utmValidator } from './utils';
 
 const PORT = process.env.PORT || 80;
 //Default URL - Returns index page and redirect domain set in config
@@ -62,7 +62,7 @@ app.get('/A5Fqfuo540lvPhxVO6u7HF1v84BiFofj', async (req, res) => {
 
 //Create new UTM Params object
 app.post('/create', async (req, res) => {
-    const params = await utmParams.create(req.body);
+    const params = await utmParams.create(utmValidator(req.body));
     return res.send(params.toJSON()); //Send the result back in JSON
 });
 
