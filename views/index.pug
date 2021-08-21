@@ -1,0 +1,12 @@
+extends layout
+block head
+    title #{app_name}
+    script.
+        #{facebook_pixel}
+    noscript.
+        !{facebook_pixel_noscript}
+
+block content
+    script.
+        fbq('trackCustom', 'GoPage Link Click')
+        window.location.replace("!{url}")
