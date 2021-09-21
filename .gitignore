@@ -5,3 +5,4 @@
 # Package Specifics
 login.pug
 # config.ts
+.DS_Store
